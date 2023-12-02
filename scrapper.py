@@ -1,6 +1,4 @@
-import requests
 from bs4 import BeautifulSoup as bs
-import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
@@ -34,18 +32,18 @@ def scrap_college_dunia(url):
                     univ = content.find(id="collegePageTitle").text.strip(
                         ' - List of Professors and Faculty ')
                 else:
-                    univ=""
+                    univ = ""
                 if content.find("span", class_="jsx-201813991 text-white text-capitalize font-weight-medium text-md") != None:
                     location = content.find(
                         "span", class_="jsx-201813991 text-white text-capitalize font-weight-medium text-md").text.strip()
                 else:
-                    location=""
+                    location = ""
 
                 if x.find("p", class_="jsx-2968715513 email text-secondary font-weight-bold text-capitalize text-md mb-1 d-flex") != None:
-                    email = x.find( 
+                    email = x.find(
                         "p", class_="jsx-2968715513 email text-secondary font-weight-bold text-capitalize text-md mb-1 d-flex").text.strip('Email - ')
                 else:
-                    email=""
+                    email = ""
 
                 data.append(
                     {

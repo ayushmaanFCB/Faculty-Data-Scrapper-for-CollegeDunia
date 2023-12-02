@@ -5,9 +5,7 @@ import pandas as pd
 url = "https://collegedunia.com/btech/tripura-colleges"
 final_data = []
 
-
 links = generate_statewise_links(url)
-
 
 for link in links:
     scrapped_data = scrap_college_dunia(link)
