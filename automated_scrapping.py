@@ -9,25 +9,27 @@ except:
     print(
         "\n\n\033[1;31;40mSome Error occurred, check Internet Connection and make sure you have Chrome !!!\033[m")
 
-for location in ("maharashtra", "andhra-pradesh", "karnataka", "kerala", "west-bengal", "telangana", "delhi-ncr"):
-    final_data = []
-    url = f"https://collegedunia.com/btech/{location.lower()}-colleges"
+location = "tamil-nadu"
 
-    try:
-        links = generate_statewise_links(url)
+# for location in ("maharashtra", "andhra-pradesh", "karnataka", "kerala", "west-bengal", "telangana", "delhi-ncr"):
+final_data = []
+url = f"https://collegedunia.com/btech/{location.lower()}-colleges"
 
-        for link in links:
-            print(link)
-            scrapped_data = scrap_college_dunia(link)
-            print(scrapped_data)
-            for d in scrapped_data:
-                final_data.append(d)
+try:
+    links = generate_statewise_links(url)
 
-        data_df = pd.DataFrame(final_data)
-        data_df.to_excel(f"./data/{location}.xlsx")
-        print(
-            f"\n\n\033[1;32;40mFaculty Details from {location} saved successfully !!!\033[m")
+    for link in links:
+        print(link)
+        scrapped_data = scrap_college_dunia(link)
+        print(scrapped_data)
+        for d in scrapped_data:
+            final_data.append(d)
 
-    except:
-        print(
-            f"\n\n\033[1;31;40mSome Error occurred, check the input for {location.lower()} properly !!!\033[m")
+    data_df = pd.DataFrame(final_data)
+    data_df.to_excel(f"./data/{location}.xlsx")
+    print(
+        f"\n\n\033[1;32;40mFaculty Details from {location} saved successfully !!!\033[m")
+
+except:
+    print(
+        f"\n\n\033[1;31;40mSome Error occurred, check the input for {location.lower()} properly !!!\033[m")

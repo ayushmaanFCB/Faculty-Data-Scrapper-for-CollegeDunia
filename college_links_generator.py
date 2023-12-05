@@ -23,7 +23,7 @@ def generate_statewise_links(url):
             "return document.body.scrollHeight")
         scroll_to_bottom()
 
-        WebDriverWait(driver, 10).until(
+        WebDriverWait(driver, 1000).until(
             EC.presence_of_element_located((By.XPATH, "//*"))
         )
 
@@ -41,6 +41,7 @@ def generate_statewise_links(url):
         "a", class_="jsx-3462784614 college_name underline-on-hover")
 
     for a in college_links_anchors:
+        print(a['href'])
         college_links.append("https://collegedunia.com/"+a['href']+"/faculty")
     return college_links
 
