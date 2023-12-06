@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup as bs
 
-location = 'tamil-nadu'
+location = 'karnataka'
 
 with open(f"./templates/{location}.html", "r", encoding='utf-8') as file:
     html_content = file.read()
@@ -16,7 +16,7 @@ for a in college_links_anchors:
     college_links.append(a['href']+"/faculty")
 
 try:
-    with open("./links/tamil_nadu.txt", "w") as file:
+    with open(f"./links/{location}.txt", "w") as file:
         for college_link in college_links:
             file.write(str(college_link)+"\n")
     print(
