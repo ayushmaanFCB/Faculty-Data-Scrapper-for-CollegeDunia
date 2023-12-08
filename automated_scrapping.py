@@ -19,7 +19,7 @@ try:
     links = generate_statewise_links(url)
 
     for link in links:
-        print(link)
+        # print(link)
         scrapped_data = scrap_college_dunia(link)
         print(scrapped_data)
         for d in scrapped_data:
